@@ -69,11 +69,11 @@
     "cursor": {
       "from": {
         "line": 0,
-        "ch": 0
+        "ch": 4
       },
       "to": {
         "line": 0,
-        "ch": 0
+        "ch": 4
       }
     },
     "expandedKeys": []
@@ -552,7 +552,7 @@
     "expandedKeys": []
   },
   "Git 的简单使用.md": {
-    "scroll": 18.948349368079,
+    "scroll": 0,
     "cursor": {
       "from": {
         "line": 14,

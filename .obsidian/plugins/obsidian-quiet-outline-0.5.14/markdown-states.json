@@ -234,7 +234,7 @@
     "cursor": {
       "from": {
         "line": 0,
-        "ch": 0
+        "ch": 15
       },
       "to": {
         "line": 0,
@@ -462,15 +462,91 @@
     "expandedKeys": []
   },
   "AI Agent/学习笔记/项目面经.md": {
+    "scroll": 160.97551635901132,
+    "cursor": {
+      "from": {
+        "line": 17,
+        "ch": 0
+      },
+      "to": {
+        "line": 323,
+        "ch": 29
+      }
+    },
+    "expandedKeys": [
+      "item-1-1",
+      "item-1-27"
+    ]
+  },
+  "AI Agent/DeepResearch 面经.md": {
     "scroll": 0,
     "cursor": {
       "from": {
-        "line": 15,
-        "ch": 63
+        "line": 53,
+        "ch": 3
       },
       "to": {
-        "line": 3,
-        "ch": 0
+        "line": 53,
+        "ch": 3
+      }
+    },
+    "expandedKeys": []
+  },
+  "AI Agent/Agent开发面经（题集）.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 5,
+        "ch": 4
+      },
+      "to": {
+        "line": 5,
+        "ch": 4
+      }
+    },
+    "expandedKeys": []
+  },
+  "AI Agent/知识/Idea.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 5,
+        "ch": 4
+      },
+      "to": {
+        "line": 5,
+        "ch": 4
+      }
+    },
+    "expandedKeys": []
+  },
+  "Agent开发面经（答案）.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 5,
+        "ch": 45
+      },
+      "to": {
+        "line": 5,
+        "ch": 45
+      }
+    },
+    "expandedKeys": [
+      "item-1-1",
+      "item-1-27"
+    ]
+  },
+  "Agent开发面经（题集）.md": {
+    "scroll": 25.33878976310882,
+    "cursor": {
+      "from": {
+        "line": 53,
+        "ch": 4
+      },
+      "to": {
+        "line": 53,
+        "ch": 4
       }
     },
     "expandedKeys": []

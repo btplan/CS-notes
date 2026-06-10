@@ -10,5 +10,6 @@
 10. 顺序
     git add. -> git commit -> git tag -> git push -> git push --tags
 
+git remote add origin 仓库地址
 # 回滚
 1. 

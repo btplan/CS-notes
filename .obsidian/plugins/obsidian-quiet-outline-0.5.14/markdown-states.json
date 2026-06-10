@@ -541,12 +541,26 @@
     "scroll": 25.33878976310882,
     "cursor": {
       "from": {
-        "line": 41,
+        "line": 52,
+        "ch": 29
+      },
+      "to": {
+        "line": 52,
+        "ch": 29
+      }
+    },
+    "expandedKeys": []
+  },
+  "Git 的简单使用.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 13,
         "ch": 3
       },
       "to": {
-        "line": 41,
-        "ch": 0
+        "line": 13,
+        "ch": 3
       }
     },
     "expandedKeys": []

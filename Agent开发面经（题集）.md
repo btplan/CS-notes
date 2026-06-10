@@ -51,5 +51,3 @@
 	3. LangGraph 的协作方式有哪些
 	4. LangGraph 和 Supervisor 的区别
 5. MCP 和 Function calling 的区别
-6. 1111
-7. 111

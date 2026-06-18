@@ -18,7 +18,12 @@
 # 项目拷打
 
 ### 1. 显式状态管理很火，你是如何进行的？
-答：
+答：我的显式状态管理主要体现在 `State`、`Plan` 和图路由三层。
+`Plan`每个 step 有 `step_type` 和 `execution_res`。这让系统知道哪个 step 已经执行、哪个还没执行、该交给 Researcher 还是 Coder。
+
+路由逻辑在`research_team` 会找第一个未完成 step，根据 `step_type` 路由到 `researcher` 或 `coder`；全部完成后回到 `planner` 或 `reporter`。
+
+这就是显式状态管理的实际价值：减少不可控 Agent 自由发挥，把“下一步做什么”变成可检查、可调试、可恢复的状态机逻辑。
 
 ### 2. 你的 benchmark 是什么？你认为你比 Gemini 的 DR 好在哪？
 答：
@@ -322,6 +327,18 @@ Planner 负责生成结构化计划，Researcher 和 Coder 分别执行检索与
 		1. 若已replan过x次计划，直接reporter / END，不让错误JSON流入后续节点
 4. Pydantic 结构强校验，自己定义的Plan model，==解决是否是我需要的业务对象==
    避免语法合法，但字段不完整、类型不对的JSON结构体
+
+### 24. 你的state字段中，有message和observation两个字段，分别记录什么？意义在哪？
+`messages` 是工作流的对话轨迹和节点通信记录。它来自 `MessagesState`，用于保存用户输入、Planner 输出、Feedback、Researcher/Coder 执行结果等消息。它的意义是让 LangGraph 节点之间有统一的上下文传递方式，也方便 stream 输出和调试。
+
+`observations` 是执行阶段产生的研究发现池。比如 `Researcher` 搜索后的结论，或者 `Coder` 计算后的结果，会被追加到 `observations`。它不是为了展示技术，而是为了解决一个实际问题：最终报告不能只根据最后一轮对话生成，而要基于每个 step 的中间发现汇总。
+
+两者区别是：
+
+- `messages` 偏流程上下文：谁说了什么、节点怎么流转。
+- `observations` 偏任务证据：每个研究步骤实际产出了什么可用于报告的内容。
+
+不过我也会指出当前代码里有个实现问题：[graph/nodes.py (line 243)](/d:/Personal/考研/复试汇总/项目/DeepResearch/graph/nodes.py:243) 里 `reporter_node` 创建了 `observation_messages`，但没有真正 `extend` 到 `invoke_messages`。也就是说，设计意图是 Reporter 基于 observations 写报告，但当前实现需要补一行把 observations 注入 reporter prompt，否则报告可能没有真正消费中间研究结果。
 ### Embedding模型是什么？
 # 业务
 

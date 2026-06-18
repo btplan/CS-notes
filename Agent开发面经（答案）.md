@@ -339,6 +339,19 @@ Planner 负责生成结构化计划，Researcher 和 Coder 分别执行检索与
 - `observations` 偏任务证据：每个研究步骤实际产出了什么可用于报告的内容。
 
 不过我也会指出当前代码里有个实现问题：[graph/nodes.py (line 243)](/d:/Personal/考研/复试汇总/项目/DeepResearch/graph/nodes.py:243) 里 `reporter_node` 创建了 `observation_messages`，但没有真正 `extend` 到 `invoke_messages`。也就是说，设计意图是 Reporter 基于 observations 写报告，但当前实现需要补一行把 observations 注入 reporter prompt，否则报告可能没有真正消费中间研究结果。
+
+### 项目解决什么问题
+
+它解决的是复杂问题调研的工程化交付问题。
+普通聊天模型适合回答简单问题，但面对“调研一个领域、比较多个方案、找资料、引用来源、做结构化报告”这类任务，单轮回答很容易出现几个问题：跑题、资料不足、没有引用、过程不可控、无法处理中间计算。
+
+这个项目把任务拆成：
+- Coordinator：判断是不是研究任务。
+- Background Investigator：先做背景搜索。
+- Planner：拆成结构化研究计划。
+- Researcher：负责外部资料检索。
+- Coder：负责计算、数据处理、代码辅助分析。
+- Reporter：汇总为 Markdown 报告。
 ### Embedding模型是什么？
 # 业务
 

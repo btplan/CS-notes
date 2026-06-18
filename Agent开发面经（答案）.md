@@ -352,6 +352,11 @@ Planner 负责生成结构化计划，Researcher 和 Coder 分别执行检索与
 - Researcher：负责外部资料检索。
 - Coder：负责计算、数据处理、代码辅助分析。
 - Reporter：汇总为 Markdown 报告。
+
+### 借鉴了什么
+我主要参考了 LangGraph 官方的 workflow / agent 范式，以及 LangChain 开源的 Open Deep Research。LangGraph 给我的启发是，复杂 Agent 应用不应该只靠一个 ReAct 循环，而应该用 StateGraph 把节点、状态和条件路由显式建模。Open Deep Research 给我的启发是，Deep Research 任务应该先澄清和规划，再进行搜索增强的资料收集，最后生成结构化报告。
+
+我的项目借鉴了它们的“plan -> research -> synthesize -> report”主链路，但做了几处自己的改造。第一，我把执行角色拆成 Researcher 和 Coder，分别处理搜索型任务和计算型任务。第二，我让 Planner 输出严格的 Plan JSON，并用 json repair、json.loads 和 Pydantic 做结构化校验。第三，我用 research_team 节点做显式 step 调度，不让多个 Agent 自由群聊。第四，我加了 background investigation 和 human feedback 节点，让规划前有背景信息，计划执行前也能人工确认。整体上，我不是简单复刻 Open Deep Research，而是把它收敛成一个更可控、更适合工程实现的多智能体研究工作流。
 ### Embedding模型是什么？
 # 业务
 

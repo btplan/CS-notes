@@ -538,15 +538,15 @@
     ]
   },
   "Agent开发面经（题集）.md": {
-    "scroll": 30.580966408772415,
+    "scroll": 0,
     "cursor": {
       "from": {
-        "line": 42,
-        "ch": 38
+        "line": 2,
+        "ch": 20
       },
       "to": {
-        "line": 42,
-        "ch": 38
+        "line": 2,
+        "ch": 3
       }
     },
     "expandedKeys": []
@@ -589,6 +589,20 @@
       "to": {
         "line": 75,
         "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "Claude Code 笔记.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 15,
+        "ch": 75
+      },
+      "to": {
+        "line": 15,
+        "ch": 75
       }
     },
     "expandedKeys": []
